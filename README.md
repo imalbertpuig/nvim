@@ -3,7 +3,7 @@ Personal configuration to use Neovim as my favourite IDE!
 
 ## Setps
 1. Download the nvim project to ~/.config
-2. Create or modify your ~/.bash_aliases to put vim as nvim alias. It is a cleanest way instead to ~/.bash_rc.
+2. Create or modify your ~/.bash_aliases to put vim as nvim alias. It is a cleanest way instead of ~/.bash_rc.
 3. Execute the next command to refresh the aliases without reboot the system:
 ```
 source ~/.bash_aliases
