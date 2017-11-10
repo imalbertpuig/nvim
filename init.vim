@@ -41,6 +41,15 @@ Plug 'jlanzarotta/bufexplorer'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" Vim-vue
+Plug 'posva/vim-vue'
+
+" Automatic closing quotes, parenthesis, etc.
+Plug 'Raimondi/delimitMate'
+
+" Highlighting the word to replace
+Plug 'osyo-manga/vim-over'
+
 " Initialize plugin system
 call plug#end()
 
