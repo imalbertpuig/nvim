@@ -12,4 +12,4 @@ source ~/.bash_aliases
 5. The UltiSnips is a plugin included in the repo. It requires py >= 2.7 or any py3. Install:
 * https://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3
 * https://github.com/neovim/neovim/issues/2906
-6. Install ack package to search files in a project. See: https://beyondgrep.com/install/
+6. Install ack package to use the ack plugin. It is necessary to search files in a project. See: https://beyondgrep.com/install/
