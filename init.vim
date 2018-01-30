@@ -50,6 +50,27 @@ Plug 'Raimondi/delimitMate'
 " Highlighting the word to replace
 Plug 'osyo-manga/vim-over'
 
+" Git vim
+Plug 'tpope/vim-fugitive'
+
+" Add, replace and remove quotes
+Plug 'tpope/vim-surround'
+
+"
+Plug 'wellle/targets.vim'
+
+"
+Plug 'kana/vim-textobj-user'
+
+"
+Plug 'kana/vim-textobj-user/wiki'
+
+" Search and replace across many files
+Plug 'skwp/greplace.vim'
+
+" Rename directories and files using vim editing commands
+Plug 'qpkorr/vim-renamer'
+
 " Initialize plugin system
 call plug#end()
 
