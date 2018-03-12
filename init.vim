@@ -59,12 +59,6 @@ Plug 'tpope/vim-surround'
 "
 Plug 'wellle/targets.vim'
 
-"
-Plug 'kana/vim-textobj-user'
-
-"
-Plug 'kana/vim-textobj-user/wiki'
-
 " Search and replace across many files
 Plug 'skwp/greplace.vim'
 
