@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
 " Comment
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'lumiliet/vim-twig'
+
 " Search highlight
 Plug 'easymotion/vim-easymotion'
 
@@ -64,6 +66,9 @@ Plug 'skwp/greplace.vim'
 
 " Rename directories and files using vim editing commands
 Plug 'qpkorr/vim-renamer'
+
+" Typescript highlighting
+Plug 'leafgarland/typescript-vim'
 
 " Initialize plugin system
 call plug#end()
