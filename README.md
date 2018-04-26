@@ -1,5 +1,5 @@
 # Neovim
-Personal configuration to use Neovim as my favourite IDE!
+Personal configuration to use Neovim as your favourite IDE.
 
 ## Setps
 1. Download the nvim project to ~/.config
