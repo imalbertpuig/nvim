@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 " Comment
 Plug 'scrooloose/nerdcommenter'
 
+" Twig
 Plug 'lumiliet/vim-twig'
 
 " Search highlight
@@ -70,6 +71,9 @@ Plug 'qpkorr/vim-renamer'
 " Typescript highlighting
 Plug 'leafgarland/typescript-vim'
 
+" Give an specific format to different languages
+Plug 'editorconfig/editorconfig-vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -85,18 +89,26 @@ let g:deoplete#enable_at_startup = 1
 " CtrlP Configuration
 let g:ctrlp_max_files=0
 
+" EditorConfig configuration
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+
 "Ignored files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=*/node_modules/*,*/bower_components/*
+set wildignore+=*/node_modules/*,*/bower_components/*,*/cache/*
 set wildignore+=*.ttf,*.svg,*.eot,*.woff,*.woff2,*.min.js
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.bz2,*.gz,*.tar,*.xz,*.zip
 set wildignore+=*.epub,*.mobi,*.pdf
 set wildignore+=__init__.*
-set wildignore+=*.xml
+"set wildignore+=*.xml
 set wildignore+=*.jar						" java archives
 set wildignore+=*.luac						" Lua byte code
 set wildignore+=*.pyc						" Python bytecode
+"Ignored files Smartturno
+set wildignore+=*/global/vendor/*,*/local/vendor/*
+"Ignored files Ionic app
+set wildignore+=*/app/www/*
 
 " Define config parameters
 set nocompatible
