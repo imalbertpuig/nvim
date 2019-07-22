@@ -74,6 +74,9 @@ Plug 'leafgarland/typescript-vim'
 " Give an specific format to different languages
 Plug 'editorconfig/editorconfig-vim'
 
+" Preview colors in source code while editing
+Plug 'ap/vim-css-color'
+
 " Initialize plugin system
 call plug#end()
 
