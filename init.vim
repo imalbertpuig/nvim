@@ -84,7 +84,7 @@ call plug#end()
 let mapleader = ","
 
 " Autosave Configuration
-let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 0  " enable AutoSave on Vim startup
 
 " Autocomplete variables
 let g:deoplete#enable_at_startup = 1
