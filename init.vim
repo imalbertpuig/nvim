@@ -1,3 +1,37 @@
+syntax on " Enable syntax highlighting. 
+set clipboard=unnamed " Copy to the host's clipboard
+set showcmd " Show the commands I'm executing
+set nocompatible " Define config parameters
+set relativenumber
+set visualbell " dont beep
+set diffopt+=vertical " Always use vertical diffs
+set colorcolumn=80 " 80 lines background
+
+" Navigate on tabs with Shift +l|h direction
+noremap <S-l> gt
+noremap <S-h> gT
+
+" Tabs and indentation AND INDENTATION
+filetype plugin indent on
+set tabstop=4							" show  existing tab with 4 spaces width
+set shiftwidth=4						" when indenting with '>' use 4 spaces width
+set expandtab							" On pressing tab, insert 4 spaces
+set relativenumber						" show line numbers on files
+set softtabstop=4						" when hitting <BS>, pretend like a tab is removed, even if spaces
+
+set title							" change the terminal's title
+set statusline+=%F
+set list							" Visual see the spaces and trails
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set cursorline							" Highlight the current line
+
+set splitbelow							" Split right and bottom always
+set splitright
+
+set guioptions-=r						" Disable scrollbars (real hackers don't use scrollbars for navigation!)
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -5,8 +39,17 @@
 " Link: https://www.github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
+" Theme
+Plug 'NLKNguyen/papercolor-theme'
+"
 " Comment
 Plug 'scrooloose/nerdcommenter'
+
+" File system explorer
+Plug 'preservim/nerdtree'
+
+" List file system explorer using -
+Plug 'tpope/vim-vinegar'
 
 " Twig
 Plug 'lumiliet/vim-twig'
@@ -23,29 +66,18 @@ Plug 'mileszs/ack.vim'
 " Control + P to search files 
 Plug 'ctrlpvim/ctrlp.vim'
 
-" List directory with -
-Plug 'tpope/vim-vinegar'
-
 " Autosave
 Plug 'vim-scripts/vim-auto-save'
 
 " Provides syntax highlighting and improved indentation
 Plug 'pangloss/vim-javascript'
 
-" Theme
-Plug 'NLKNguyen/papercolor-theme'
-
-" Snippet solutions
+" Autocomplete
 Plug 'SirVer/ultisnips'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Buffer explorer
 Plug 'jlanzarotta/bufexplorer'
-
-" Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Vim-vue
-Plug 'posva/vim-vue'
 
 " Automatic closing quotes, parenthesis, etc.
 Plug 'Raimondi/delimitMate'
@@ -80,23 +112,24 @@ Plug 'ap/vim-css-color'
 " Initialize plugin system
 call plug#end()
 
-" Define global variables
-let mapleader = ","
+" START NLKNguyen/papercolor-theme
+colorscheme PaperColor
+set background=light
+set t_Co=256
 
-" Autosave Configuration
-let g:auto_save = 0  " enable AutoSave on Vim startup
+" START Kite autocomplete
+let g:kite_supported_languages = ['*']
 
-" Autocomplete variables
-let g:deoplete#enable_at_startup = 1
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+set completeopt+=preview
+autocmd CompleteDone * if !pumvisible() | pclose | endif
+set belloff+=ctrlg  " if vim beeps during completion
 
-" CtrlP Configuration
+" START ctrlpvim/ctrlp.vim: Ctrl + P Configuration
 let g:ctrlp_max_files=0
-
-" EditorConfig configuration
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
-
-"Ignored files
+" Ignore files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*/node_modules/*,*/bower_components/*,*/cache/*
 set wildignore+=*.ttf,*.svg,*.eot,*.woff,*.woff2,*.min.js
@@ -108,54 +141,30 @@ set wildignore+=__init__.*
 set wildignore+=*.jar						" java archives
 set wildignore+=*.luac						" Lua byte code
 set wildignore+=*.pyc						" Python bytecode
-"Ignored files Smartturno
+"Ignore files for SmartTurno
 set wildignore+=*/global/vendor/*,*/local/vendor/*
-"Ignored files Ionic app
+"Ignore files for Ionic
 set wildignore+=*/app/www/*
+set wildignore+=*/app/plugins/*
+set wildignore+=*/app/platforms/*
 
-" Define config parameters
-set nocompatible
-set relativenumber
+" START scrooloose/nerdcommenter
+let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
+let g:NERDCompactSexyComs = 1 " Use compact syntax for prettified multi-line comments
 
-" Define theme variables
-syntax on
-colorscheme PaperColor
-set background=light
-set t_Co=256
+" START vim-scripts/vim-auto-save
+let g:auto_save = 0  " enable or disable AutoSave on Vim startup
 
-" Navigate on tabs with Shift +l|h direction
-noremap <S-l> gt
-noremap <S-h> gT
+" START editorconfig/editorconfig-vim
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
-" TABS AND INDENTATION
-filetype plugin indent on
-set tabstop=4							" show  existing tab with 4 spaces width
-set shiftwidth=4						" when indenting with '>' use 4 spaces width
-set expandtab							" On pressing tab, insert 4 spaces
-set relativenumber						" show line numbers on files
-set softtabstop=4						" when hitting <BS>, pretend like a tab is removed, even if spaces
+" START easymotion/vim-easymotion
+let mapleader = ","
+" 2- character search motion
+nmap <Leader>s <Plug>(easymotion-s2)
 
-" GENERAL CONFIG
-set title							" change the terminal's title
-set statusline+=%F
-set list							" Visual see the spaces and trails
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set cursorline							" Highlight the current line
-
-set splitbelow							" Split right and bottom always
-set splitright
-
-set guioptions-=r						" Disable scrollbars (real hackers don't use scrollbars for navigation!)
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
-
-" SOUND
-set visualbell							" dont beep
-
-" 80 LINES BACKGROUND
-" ==================
-set colorcolumn=80
-
-" Always use vertical diffs
-set diffopt+=vertical
+" Open the tree in the left side of the screen
+nmap <Leader><space> :NERDTreeFind<CR>
+" Close the tree after open the file
+let NERDTreeQuitOnOpen=1
