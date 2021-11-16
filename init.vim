@@ -13,11 +13,11 @@ noremap <S-h> gT
 
 " Tabs and indentation AND INDENTATION
 filetype plugin indent on
-set tabstop=4							" show  existing tab with 4 spaces width
-set shiftwidth=4						" when indenting with '>' use 4 spaces width
+set tabstop=2							" show  existing tab with 4 spaces width
+set shiftwidth=2						" when indenting with '>' use 4 spaces width
 set expandtab							" On pressing tab, insert 4 spaces
 set relativenumber						" show line numbers on files
-set softtabstop=4						" when hitting <BS>, pretend like a tab is removed, even if spaces
+set softtabstop=2						" when hitting <BS>, pretend like a tab is removed, even if spaces
 
 set title							" change the terminal's title
 set statusline+=%F
@@ -80,7 +80,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jlanzarotta/bufexplorer'
 
 " Automatic closing quotes, parenthesis, etc.
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 " Highlighting the word to replace
 Plug 'osyo-manga/vim-over'
@@ -108,6 +108,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Preview colors in source code while editing
 Plug 'ap/vim-css-color'
+
+" Close html tags
+Plug 'alvan/vim-closetag'
 
 " Initialize plugin system
 call plug#end()
@@ -164,7 +167,11 @@ let mapleader = ","
 " 2- character search motion
 nmap <Leader>s <Plug>(easymotion-s2)
 
+" START preservim/nerdtree
 " Open the tree in the left side of the screen
 nmap <Leader><space> :NERDTreeFind<CR>
 " Close the tree after open the file
 let NERDTreeQuitOnOpen=1
+
+" START alvan/vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
