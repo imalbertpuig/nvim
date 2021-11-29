@@ -112,6 +112,12 @@ Plug 'ap/vim-css-color'
 " Close html tags
 Plug 'alvan/vim-closetag'
 
+" Grammar checker
+Plug 'dpelle/vim-LanguageTool'
+
+" Jenkinsfile syntax
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 " Initialize plugin system
 call plug#end()
 
@@ -175,3 +181,6 @@ let NERDTreeQuitOnOpen=1
 
 " START alvan/vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" START dpelle/vim-LanguageTool
+let g:languagetool_jar='/Users/apuig/.config/nvim/LanguageTool-5.5/languagetool-commandline.jar'
