@@ -112,11 +112,17 @@ Plug 'ap/vim-css-color'
 " Close html tags
 Plug 'alvan/vim-closetag'
 
-" Grammar checker
-Plug 'dpelle/vim-LanguageTool'
-
 " Jenkinsfile syntax
 Plug 'martinda/Jenkinsfile-vim-syntax'
+
+" Auto rename tags
+Plug 'AndrewRadev/tagalong.vim'
+
+" Live server for html, css, and javascript
+Plug 'turbio/bracey.vim'
+
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -156,6 +162,7 @@ set wildignore+=*/global/vendor/*,*/local/vendor/*
 set wildignore+=*/app/www/*
 set wildignore+=*/app/plugins/*
 set wildignore+=*/app/platforms/*
+set wildignore+=*/backend/*
 
 " START scrooloose/nerdcommenter
 let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
@@ -181,6 +188,3 @@ let NERDTreeQuitOnOpen=1
 
 " START alvan/vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-
-" START dpelle/vim-LanguageTool
-let g:languagetool_jar='/Users/apuig/.config/nvim/LanguageTool-5.5/languagetool-commandline.jar'
